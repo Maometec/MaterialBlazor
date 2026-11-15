@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="MaterialBlazor.Hybrid/MaterialBlazor.Hybrid.csproj" Id="f0733198-793a-415e-b5f0-da9f7f950826">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="MaterialBlazor.Shared/MaterialBlazor.Shared.csproj" />
+  <Project Path="MaterialBlazor.Web/MaterialBlazor.Web.csproj" Id="635dd7ac-e649-41f3-bbb6-0110192cffaa" />
+</Solution>
