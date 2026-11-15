@@ -1,5 +1,8 @@
 html, body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
 }
 
 #blazor-error-ui {
@@ -107,4 +110,8 @@ code {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
+}
+
+.content {
+    height: calc(100vh - 64px);
 }

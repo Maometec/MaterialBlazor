@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MaterialBlazor.Hybrid"
              xmlns:components="clr-namespace:MaterialBlazor.Shared.Components;assembly=MaterialBlazor.Shared"
-             x:Class="MaterialBlazor.Hybrid.MainPage">
+             x:Class="MaterialBlazor.Hybrid.MainPage"
+             SafeAreaEdges="All">
 
     <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
         <BlazorWebView.RootComponents>
