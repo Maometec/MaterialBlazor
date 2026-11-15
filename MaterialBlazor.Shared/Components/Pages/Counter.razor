@@ -1,15 +1,22 @@
 @page "/counter"
 
-<PageTitle>Counter</PageTitle>
-
-<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+<PageTitle>@title | Material Blazor</PageTitle>
 
 <MudText Class="mb-4">Current count: @currentCount</MudText>
 
 <MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
 
 @code {
+    [CascadingParameter]
+    public EventCallback<string> OnLoaded { get; set; }
+
+    private string title = "Counter";
     private int currentCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await OnLoaded.InvokeAsync(title);
+    }
 
     private void IncrementCount()
     {

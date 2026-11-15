@@ -2,10 +2,9 @@
 
 @using MaterialBlazor.Shared.Models
 
-<PageTitle>Weather</PageTitle>
+<PageTitle>@title | Material Blazor</PageTitle>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Weather forecast</MudText>
-<MudText Typo="Typo.body1" Class="mb-8">This component demonstrates fetching data from the server.</MudText>
+<MudText Typo="Typo.body1" Class="mb-8">This component demonstrates fetching data.</MudText>
 
 @if (forecasts == null)
 {
@@ -34,9 +33,14 @@ else
 
 @code {
     private WeatherForecast[]? forecasts;
+    private string title = "Weather";
+
+    [CascadingParameter]
+    public EventCallback<string> OnLoaded { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
+        await OnLoaded.InvokeAsync(title);
         // Simulate asynchronous loading to demonstrate a loading indicator
         await Task.Delay(500);
 
