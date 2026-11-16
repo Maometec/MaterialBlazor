@@ -1,5 +1,3 @@
-@page "/"
-
 <PageTitle>@title | @Brand</PageTitle>
 
 <MudText Typo="Typo.h3" GutterBottom="true">Hello, world!</MudText>
@@ -12,18 +10,3 @@
         <b>www.mudblazor.com</b>
     </MudLink>
 </MudAlert>
-
-@code {
-    [CascadingParameter]
-    public string? Brand { get; set; }
-
-    [CascadingParameter]
-    public EventCallback<string> OnLoaded { get; set; }
-
-    private string title = "Home";
-
-    protected override async Task OnInitializedAsync()
-    {
-        await OnLoaded.InvokeAsync(title);
-    }
-}
