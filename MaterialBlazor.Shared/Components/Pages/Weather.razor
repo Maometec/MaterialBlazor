@@ -2,7 +2,7 @@
 
 @using MaterialBlazor.Shared.Models
 
-<PageTitle>@title | Material Blazor</PageTitle>
+<PageTitle>@title | @Brand</PageTitle>
 
 <MudText Typo="Typo.body1" Class="mb-8">This component demonstrates fetching data.</MudText>
 
@@ -34,6 +34,9 @@ else
 @code {
     private WeatherForecast[]? forecasts;
     private string title = "Weather";
+
+    [CascadingParameter]
+    public string? Brand { get; set; }
 
     [CascadingParameter]
     public EventCallback<string> OnLoaded { get; set; }

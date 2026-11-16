@@ -8,7 +8,7 @@
 <MudLayout>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="2">
         <MudDrawerHeader>
-            <MudText Typo="Typo.h5" Class="mt-1">Material Blazor</MudText>
+            <MudText Typo="Typo.h5" Class="mt-1">@brand</MudText>
         </MudDrawerHeader>
         <NavMenu />
     </MudDrawer>
@@ -26,18 +26,21 @@
     </MudAppBar>
 
     <MudMainContent Class="content overflow-auto pa-6">
-        <CascadingValue Value="OnPageLoaded">
-            @Body
+        <CascadingValue Value="brand">
+            <CascadingValue Value="onPageLoaded">
+                @Body
+            </CascadingValue>
         </CascadingValue>
     </MudMainContent>
 </MudLayout>
 
 @code {
+    private string brand = "Material Blazor";
     private string title = null!;
     private bool _drawerOpen = true;
     private bool _isDarkMode = false;
     private MudTheme? _theme;
-    private EventCallback<string> OnPageLoaded => EventCallback.Factory.Create(this, (Action<string>)SetTitle);
+    private EventCallback<string> onPageLoaded => EventCallback.Factory.Create(this, (Action<string>)SetTitle);
 
     private void SetTitle(string title)
     {
